@@ -1,2 +1,15 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
+<div class="container">
+<%= form_for [@user, @post] do |f| %>
+<div class="form-row">
+    <%= f.label :picture, "Peekture" %>
+    <%= f.text_field :picture, class: "form-control" %>
+</div>
+<div class="form-row">
+    <%= f.label :text, "text" %>
+    <%= f.text_field :text, class: "form-control" %>
+</div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+</div>

@@ -1,2 +1,12 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+<%= link_to  "Add Post", new_user_post_path(current_user.id) %>
+
+<% @posts.each do |post| %>
+<div><%= post.picture %></div>
+<div><%= post.text %></div>
+<div><%= link_to  post.id, user_post_path(current_user.id, post.id) %></div>
+
+<% end %>
+</div>
