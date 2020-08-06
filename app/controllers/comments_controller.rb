@@ -1,20 +1,30 @@
 class CommentsController < ApplicationController
   before_action :new_comment, only: [:new, :create]
   before_action :set_comment, only: [:show, :edit, :update]
+
   def index
+    @comments = Comment.all
   end
 
   def new
-    @comment = @post.comments.build
+    #@comment = @post.comments.build
+    @comment = Comment.new
+    @posts = Post.all
   end
 
   def create
-    @comment = @post.comments.build(comment_params)
+    # @comment = @post.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment["post_id"] = @post.id
+    @comment["user_id"] = current_user.id
+    p @comment.inspect
 
     if @comment.save
-      redirect_to user_post_path(@post)
+      # redirect_to user_post_path(@post)
+      redirect_to post_path(@comment.post_id)
     else   
-      render :new
+      # render :new
+      redirect_to post_path(@post.id)
     end
   end
 
