@@ -3,3 +3,5 @@
 <%= link_to  "CLICK ME", user_posts_path %>
 <p><%= @post.picture %></p>
 <p><%= @post.text %></p>
+
+<%= link_to  "New Comment", new_post_comment_path(@post.id) %>
