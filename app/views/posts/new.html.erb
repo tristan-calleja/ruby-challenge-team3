@@ -6,10 +6,19 @@
     <%= f.label :picture, "Peekture" %>
     <%= f.text_field :picture, class: "form-control" %>
 </div>
+<div>
+    <%= f.label :post_image %>
+    <%= f.file_field :post_image %>
+</div>
+
 <div class="form-row">
     <%= f.label :text, "text" %>
     <%= f.text_field :text, class: "form-control" %>
 </div>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    
+
+
+<%= f.submit "Submit", class: "btn btn-primary" %>
+
 <% end %>
 </div>
