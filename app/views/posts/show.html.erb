@@ -4,4 +4,15 @@
 <p><%= @post.picture %></p>
 <p><%= @post.text %></p>
 
-<%= link_to  "New Comment", new_post_comment_path(@post.id) %>
+
+<%= form_for [@post, @comment] do |f| %>
+
+<%= f.label :text, "Text" %>
+<%= f.text_field :text %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
+
+<%#= link_to  "New Comment", new_post_comment_path(@post.id) %>
+
