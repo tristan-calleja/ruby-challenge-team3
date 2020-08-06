@@ -15,13 +15,16 @@ class CommentsController < ApplicationController
   def create
     # @comment = @post.comments.build(comment_params)
     @comment = Comment.new(comment_params)
-    p @post.inspect
+    @comment["post_id"] = @post.id
+    @comment["user_id"] = current_user.id
+    p @comment.inspect
 
     if @comment.save
       # redirect_to user_post_path(@post)
       redirect_to post_path(@comment.post_id)
     else   
-      render :new
+      # render :new
+      redirect_to post_path(@post.id)
     end
   end
 

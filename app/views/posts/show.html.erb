@@ -1,18 +1,27 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
-<%= link_to  "CLICK ME", user_posts_path %>
+
+<%= link_to  "CLICK ME", user_posts_path(current_user.id) %>
 <p><%= @post.picture %></p>
 <p><%= @post.text %></p>
 
 
 <%= form_for [@post, @comment] do |f| %>
 
-<%= f.label :text, "Text" %>
 <%= f.text_field :text %>
 
 <%= f.submit "Submit" %>
 
 <% end %>
 
-<%#= link_to  "New Comment", new_post_comment_path(@post.id) %>
+ <% @post.comments.each do |comment| %>
 
+    <div class="media text-muted pt-3">
+         <img src="" />
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= comment.user.username %> </strong>
+            <%= comment.text %>
+          </p>
+        </div>
+
+<% end %>
