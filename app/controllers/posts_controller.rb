@@ -34,6 +34,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def followers
+    # basically, this has nothing to do with any post and it's just here for convenience cos we don't want to
+    # write another controller lol
+
+    # @followers = [] # empty array to store
+
+    # loop over current_user.followers
+    # for each number in that array,
+    # push the User.find(array number) into the above array
+
+    
+  end
+
+
   private
 
   def set_post
